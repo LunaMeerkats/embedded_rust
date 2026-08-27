@@ -1,0 +1,2 @@
+https://www.youtube.com/watch?v=rQ_J9WH6CGk
+This is the video I am using to learn rust!
