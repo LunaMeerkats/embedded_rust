@@ -1,0 +1,8 @@
+gdb-multiarch -q target/thumbv7em-none-eabihf/debug/hello
+
+monitor reset halt
+load
+monitor arm semihosting enable
+break main
+monitor reset halt
+continue
