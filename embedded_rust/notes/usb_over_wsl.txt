@@ -1,0 +1,10 @@
+usbipd list
+
+usbipd bind --busid (insert bus, usually 2-4 or something)
+
+usbipd attach --wsl --busid (insert bus)
+
+
+
+if needed:
+winget install --interactive --exact dorssel.usbipd-win
