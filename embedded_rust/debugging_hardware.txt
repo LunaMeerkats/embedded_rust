@@ -1,5 +1,0 @@
-In the app directory do: 
-
-Assuming there is a configured opencd.cfg AND the usb is configured (especially on wsl)
-
-openocd -f openocd.cfg

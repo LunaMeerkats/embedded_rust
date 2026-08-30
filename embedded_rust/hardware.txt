@@ -1,6 +1,0 @@
-The board I am using is the NUCLEO-H753ZI.
-
-The NUCLEO-H753ZI development board uses a 32-bit ARM Cortex-M7 core architecture 
-(specifically the Cortex-M7F sub-architecture) via its on-board STM32H753ZI microcontroller.
-
-https://www.st.com/content/ccc/resource/technical/document/reference_manual/group0/c9/a3/76/fa/55/46/45/fa/DM00314099/files/DM00314099.pdf/jcr:content/translations/en.DM00314099.pdf
