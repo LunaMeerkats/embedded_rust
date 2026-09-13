@@ -31,17 +31,25 @@ fn main() -> ! {
 
     let gpioe = dp.GPIOE.split(ccdr.peripheral.GPIOE); //Splits the peripheral into individual HAL
                                                        //pin objects.
+    let gpioc = dp.GPIOC.split(ccdr.peripheral.GPIOC);
+    let gpiob = dp.GPIOB.split(ccdr.peripheral.GPIOB);
+                                                       
     let mut led = gpioe.pe1.into_push_pull_output();
-
+    let button = gpioc.pc13.into_pull_down_input();
+    
     let cp = cortex_m::Peripherals::take().unwrap(); //Core perihperals.
     let mut delay = cp.SYST.delay(ccdr.clocks);
 
+    let led_status:bool = false;
+
     loop
     {
-        led.set_high();
         delay.delay_ms(500_u16);
-
-        led.set_low();
-        delay.delay_ms(500_u16);
+        if button.is_high(){
+            led.set_high();
+        }        
+        else{
+            led.set_low();
+        }
     }
 }
