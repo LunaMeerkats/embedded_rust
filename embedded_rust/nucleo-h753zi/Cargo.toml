@@ -53,7 +53,7 @@ harness = false
 [dependencies]
 cortex-m = { version = "0.7", features = ["critical-section-single-core"] }
 cortex-m-rt = "0.7"
-stm32h7xx-hal = { version = "0.16.0", features = ["stm32h743v","rt"] }
+stm32h7xx-hal = { version = "0.16.0", features = ["stm32h753v","rt"] }
 defmt = "1.0"
 defmt-rtt = "1.0"
 panic-probe = { version = "1.0", features = ["print-defmt"] }
