@@ -8,7 +8,7 @@
 struct ParticleProperties {
     mass: f64,      // MeV/c²
     twice_spin: u8, // Stores 2s: 1 means spin ½
-    charge_thirds: i8,    // Units of elementary charge, e
+    charge_thirds: i8,    // Charge in units of e/3; 2 means +2e/3.
 }
 
 
@@ -76,7 +76,7 @@ impl Quark {
 #[derive(Debug)]
 enum LeptonFlavour{
     Electron,
-    Neutrino,
+    ElectronNeutrino,
     Muon,
     MuonNeutrino,
     Tau,
@@ -98,12 +98,12 @@ impl ElementaryParticle for Lepton {
 impl Lepton {
     fn new(flavour: LeptonFlavour) -> Self {
         let (mass, twice_spin, charge_thirds) = match flavour {
-            LeptonFlavour::Electron     => (0.5, 1, -3),
-            LeptonFlavour::Neutrino     => (0.0, 1, 0),
-            LeptonFlavour::Muon         => (0.0, 1, -3), 
-            LeptonFlavour::MuonNeutrino => (0.0, 1, -3),
-            LeptonFlavour::Tau           => (0.0, 1, 0),
-            LeptonFlavour::TauNeutrino  => (0.0, 1, -3),
+            LeptonFlavour::Electron         => (0.511, 1, -3),
+            LeptonFlavour::ElectronNeutrino => (0.0, 1, 0),
+            LeptonFlavour::Muon             => (105.658, 1, -3), 
+            LeptonFlavour::MuonNeutrino     => (0.0, 1, 0),
+            LeptonFlavour::Tau              => (1776.93, 1, -3),
+            LeptonFlavour::TauNeutrino      => (0.0, 1, 0),
         };
 
         Self {
