@@ -1,5 +1,6 @@
 
 use crate::elementary_particle::{ElementaryParticle, ParticleProperties};
+use crate::colour::{ColourState, ColourOperator, Generator};
 
 #[derive(Debug)]
 pub(crate) enum QuarkFlavour{
@@ -14,6 +15,7 @@ pub(crate) enum QuarkFlavour{
 #[derive(Debug)]
 pub(crate) struct Quark {
     flavour: QuarkFlavour,
+    colour: ColourState,
     properties: ParticleProperties,
 }
 
@@ -28,8 +30,12 @@ impl Quark {
     pub(crate) fn flavour(&self) -> &QuarkFlavour {
         &self.flavour
     }
+
+    pub fn colour(&self) -> &ColourState {
+        &self.colour
+    }
     
-    pub(crate) fn new(flavour: QuarkFlavour) -> Self {
+    pub(crate) fn new(flavour: QuarkFlavour, colour: ColourState) -> Self {
         let (mass, twice_spin, charge_thirds) = match flavour {
             QuarkFlavour::Up        => (2.4, 1, 2),
             QuarkFlavour::Down      => (4.7, 1, -1),
@@ -41,6 +47,7 @@ impl Quark {
 
         Self {
             flavour,
+            colour: colour,
             properties: ParticleProperties {
                 mass,
                 twice_spin,
